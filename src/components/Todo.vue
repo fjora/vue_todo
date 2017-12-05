@@ -58,7 +58,8 @@ export default {
             this.isEditing = false;
         },
         deleteTodo(todo){
-            this.$emit('delete-todo', todo);
+            $('.ui.basic.modal')
+            .modal('show');
         },
         completeTodo(todo){
             this.$emit('complete-todo', todo);

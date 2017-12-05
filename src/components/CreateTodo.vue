@@ -9,7 +9,7 @@
                   </div>
                   <div class="field">
                       <label>Project</label>
-                      <input v-model="projectText" type="text">
+                      <textarea v-model="projectText"></textarea>
                   </div>
                   <div class="ui two button attached buttons">
                       <button class="ui basic blue button" v-on:click="sendForm()">
