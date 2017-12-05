@@ -7,7 +7,7 @@
             <div class="meta">
                 {{todo.project}}
             </div>
-            <div class="extra conent">
+            <div class="extra conent" v-show="!todo.done">
                 <span class="right floated edit icon" v-on:click="showForm">
                     <i class="edit icon"></i>
                 </span>
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="ui bottom attached green basic button" v-show="!isEditing && todo.done" disabled>
+        <div class="ui bottom attached green basic button"v-on:click="unCompleteTodo(todo)" v-show="!isEditing && todo.done">
             Completed
         </div>
         <div class="ui bottom attached red basic button" v-on:click="completeTodo(todo)" v-show="!isEditing && !todo.done">
@@ -62,6 +62,9 @@ export default {
         },
         completeTodo(todo){
             this.$emit('complete-todo', todo);
+        },
+        unCompleteTodo(todo){
+            this.$emit('un-complete-todo', todo);
         }
     }
   

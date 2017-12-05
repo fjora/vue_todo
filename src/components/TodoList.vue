@@ -1,7 +1,7 @@
 <template>
   <div>
     
-    <todo v-on:complete-todo="completeTodo" v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo"></todo>
+    <todo v-on:un-complete-todo="unCompleteTodo" v-on:complete-todo="completeTodo" v-on:delete-todo="deleteTodo" v-for="todo in todos" v-bind:todo="todo"></todo>
   </div>
 </template>
 
@@ -22,7 +22,12 @@ export default {
     completeTodo(todo) {
     const todoIndex = this.todos.indexOf(todo);
     this.todos[todoIndex].done = true;
-    }
+    },
+    unCompleteTodo(todo) {
+    const todoIndex = this.todos.indexOf(todo);
+    this.todos[todoIndex].done = false;
+    },
+
   }
 };
 </script>
